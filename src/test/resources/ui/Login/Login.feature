@@ -16,7 +16,7 @@
 #        Given I opened chrome browser
 #        When I go to opencart login page
 #        Then I see login page
-
+@ui @Login
 Feature: Đăng nhập hệ thống
 
     Scenario: Đăng nhập thành công
@@ -25,7 +25,7 @@ Feature: Đăng nhập hệ thống
         And Người dùng nhấn nút "ĐĂNG NHẬP"
         Then Hệ thống chuyển đến trang chủ
 
-
+    @Login_OK
     Scenario: Không nhập username và password
         Given Người dùng ở trang đăng nhập
         When Người dùng không nhập username và không nhập password
