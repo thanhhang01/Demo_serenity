@@ -20,9 +20,15 @@
 Feature: Đăng nhập hệ thống
 
     Scenario: Đăng nhập thành công
+#        Given Người dùng ở trang đăng nhập
+#        When Người dùng nhập username là "admin" và password là "1234"
+#        And Người dùng nhấn nút "ĐĂNG NHẬP"
+#        Then Hệ thống chuyển đến trang chủ
         Given Người dùng ở trang đăng nhập
-        When Người dùng nhập username là "admin" và password là "1234"
+        When Người dùng nhập username là "20A4802010027" và password là "Hangmon11@@"
         And Người dùng nhấn nút "ĐĂNG NHẬP"
+        Then Hệ thống hiển thị nút đăng xuất
+        When Người dùng nhấn nút đăng xuất
         Then Hệ thống chuyển đến trang chủ
 
     @Login_OK

@@ -92,6 +92,26 @@ public class LoginStepdefs {
         alert.accept();
         AssertJUnit.assertEquals(message, actualMessage);
     }
+
+    @Then("Hệ thống hiển thị nút đăng xuất")
+    public void hienthinutDangXuat() {
+        // Mở dropdown nếu cần
+        driver.findElement(By.className("btn-dropdown")).click();
+
+// Đợi dropdown hiển thị
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement logoutLink = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='Đăng xuất']")));
+
+// Click đăng xuất
+//        logoutLink.click();
+//        WebElement logoutBtn = driver.findElement(By.xpath("//a[@href='/logout.aspx']"));
+//        assertTrue(logoutBtn.isDisplayed());
+    }
+
+    @When("Người dùng nhấn nút đăng xuất")
+    public void clickDangxuat() {
+        driver.findElement(By.xpath("//a[@href='/logout.aspx']")).click();
+    }
 }
 //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 //wait.until(ExpectedConditions.alertIsPresent());
