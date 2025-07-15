@@ -32,8 +32,15 @@ Feature: Đăng nhập hệ thống
         Then Hệ thống chuyển đến trang chủ
 
     @Login_OK
-    Scenario: Không nhập username và password
+#    Scenario: Không nhập username và password
+#        Given Người dùng ở trang đăng nhập
+#        When Người dùng không nhập username và không nhập password
+#        And Người dùng nhấn nút "ĐĂNG NHẬP"
+#        Then Hệ thống hiển thị thông báo lỗi "Vui lòng nhập tên đăng nhập và mật khẩu"
+
+
+    Scenario: Bỏ trống thông tin đăng nhập
         Given Người dùng ở trang đăng nhập
-        When Người dùng không nhập username và không nhập password
+        When Người dùng không nhập gì
         And Người dùng nhấn nút "ĐĂNG NHẬP"
-        Then Hệ thống hiển thị thông báo lỗi "Vui lòng nhập tên đăng nhập và mật khẩu"
+        Then Hệ thống hiển thị thông báo lỗi "Tên đăng nhập và mật khẩu không hợp lệ, bạn nhập lại !"

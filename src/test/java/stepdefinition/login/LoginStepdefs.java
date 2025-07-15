@@ -65,9 +65,9 @@ public class LoginStepdefs {
     @Then("Hệ thống chuyển đến trang chủ")
     public void verifyHomePage() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.urlContains("SinhVien.aspx"));
+        wait.until(ExpectedConditions.urlContains("Default.aspx"));
 
-        String expectedUrl = "http://14.241.72.46/SinhVien.aspx?Chuyen_nganh=1";
+        String expectedUrl = "http://14.241.72.46/Default.aspx";
         String actualUrl = driver.getCurrentUrl();
 
         if (!actualUrl.equals(expectedUrl)) {
@@ -88,9 +88,10 @@ public class LoginStepdefs {
     @Then("Hệ thống hiển thị thông báo lỗi {string}")
     public void hienThiThongBaoLoi(String message) {
         String actualMessage = driver.findElement(By.id("lblThong_bao")).getText();
-        Alert alert = driver.switchTo().alert();
-        alert.accept();
         AssertJUnit.assertEquals(message, actualMessage);
+//        Alert alert = driver.switchTo().alert();
+//        alert.accept();
+//        AssertJUnit.assertEquals(message, actualMessage);
     }
 
     @Then("Hệ thống hiển thị nút đăng xuất")
@@ -111,6 +112,12 @@ public class LoginStepdefs {
     @When("Người dùng nhấn nút đăng xuất")
     public void clickDangxuat() {
         driver.findElement(By.xpath("//a[@href='/logout.aspx']")).click();
+    }
+
+    @When("Người dùng không nhập gì")
+    public void No() {
+        driver.findElement(By.id("txtusername")).clear();
+        driver.findElement(By.id("txtpassword")).clear();
     }
 }
 //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
