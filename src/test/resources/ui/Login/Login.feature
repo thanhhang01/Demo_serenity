@@ -25,7 +25,7 @@ Feature: Đăng nhập hệ thống
 #        And Người dùng nhấn nút "ĐĂNG NHẬP"
 #        Then Hệ thống chuyển đến trang chủ
         Given Người dùng ở trang đăng nhập
-        When Người dùng nhập username là "20A4802010027" và password là "Hangmon11@@"
+        When Người dùng nhập username là "admin" và password là "123456"
         And Người dùng nhấn nút "ĐĂNG NHẬP"
         Then Hệ thống hiển thị nút đăng xuất
         When Người dùng nhấn nút đăng xuất
